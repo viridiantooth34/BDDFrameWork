@@ -27,25 +27,45 @@ public class StandAloneTest {
 		List<WebElement> products = driver.findElements(By.xpath(xPathBlock));
 
 		System.out.println("Count of Products=" + products.size());
-		
+
 		Thread.sleep(500);
-		
+		int indexOfxPath = 0;
+		int flag = 0;
+		// ProductName
+		String productName = "ZARA COAT 3";
+
 		for (int i = 0; i < products.size(); i++) {
 
-			System.out.println(driver.findElement(By.xpath(xPathBlock +"["+(i+1) +"]//b")).getText().trim());
-		}
-//		try {
-//			
-//		
-//		WebElement prod = products.stream().filter(product->product.findElement(By.xpath("//b")).getText().trim().equals("ZARA COAT 3")).findFirst().orElse(null);
-//		}
-//		catch(Exception e) {
-//			
-//		}
-		// prod.findElement(By.xpath("//*[text()=' Add To Cart']")).click();
-	//	System.out.println(driver.findElement(By.xpath("(//div[@class='card']//b)[1]")).isEnabled());
-		System.out.println(driver.findElement(By.xpath("(//div[@class='card']//b)[1]")).getText());
-		driver.quit();
-	}
+//			System.out
+//					.println(driver.findElement(By.xpath("(" + xPathBlock + "//b)[" + (i + 1) + "]")).getText().trim());
+			if (driver.findElement(By.xpath("(" + xPathBlock + "//b)[" + (i + 1) + "]")).getText().trim()
+					.equalsIgnoreCase(productName)) {
 
+				indexOfxPath = i;
+				flag++;
+				break;
+			}
+		}
+
+		// Getting the index of Zara Coat:
+
+		Thread.sleep(500);
+		// System.out.println(driver.findElement(By.xpath("(//div[@class='card']//b)[1]")).getText());
+		
+
+		if (flag == 0) {
+			System.out.println(productName + " is not Present\nClosing Windows....");
+			driver.quit();
+		} else {
+			driver.findElement(By.xpath("(" + xPathBlock + "//button[text()=' Add To Cart'])[" + (indexOfxPath + 1) + "]"))
+					.click();
+			Thread.sleep(2000);
+			System.out.println("Clicked on: "+productName); 
+			driver.quit();
+			
+			
+			
+		}
+
+	}
 }
