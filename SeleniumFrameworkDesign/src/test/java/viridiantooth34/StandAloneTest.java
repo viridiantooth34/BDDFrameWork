@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class StandAloneTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
 		WebDriverManager.chromedriver().setup();
@@ -27,11 +27,13 @@ public class StandAloneTest {
 		List<WebElement> products = driver.findElements(By.xpath(xPathBlock));
 
 		System.out.println("Count of Products=" + products.size());
+		
+		Thread.sleep(500);
+		
+		for (int i = 0; i < products.size(); i++) {
 
-//		for (int i = 0; i < products.size(); i++) {
-//
-//			System.out.println(driver.findElement(By.xpath(xPathBlock + "//b")).getText().trim());
-//		}
+			System.out.println(driver.findElement(By.xpath(xPathBlock +"["+(i+1) +"]//b")).getText().trim());
+		}
 //		try {
 //			
 //		
@@ -41,7 +43,7 @@ public class StandAloneTest {
 //			
 //		}
 		// prod.findElement(By.xpath("//*[text()=' Add To Cart']")).click();
-		System.out.println(driver.findElement(By.xpath("(//div[@class='card']//b)[1]")).isEnabled());
+	//	System.out.println(driver.findElement(By.xpath("(//div[@class='card']//b)[1]")).isEnabled());
 		System.out.println(driver.findElement(By.xpath("(//div[@class='card']//b)[1]")).getText());
 		driver.quit();
 	}
