@@ -14,9 +14,20 @@ public class StandAloneTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-
-		WebDriverManager.chromedriver().setup();
+		
+		//Commenting WebdriverManager for Chrome Version Mismatch
+		//WebDriverManager.chromedriver().setup();
+		
+		//Adding WebDriver Path:
+		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+		
+		
 		WebDriver driver = new ChromeDriver();
+		
+		
+		
+		
+		
 		driver.get("https://rahulshettyacademy.com/client");
 		driver.manage().window().maximize();
 		driver.findElement(By.id("userEmail")).sendKeys("rick.bakshi@gmail.com");
