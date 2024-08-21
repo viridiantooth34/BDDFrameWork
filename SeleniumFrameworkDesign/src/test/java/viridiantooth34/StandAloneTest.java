@@ -1,26 +1,32 @@
 package viridiantooth34;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import viridiantooth34.pageobjects.CartPage;
+import viridiantooth34.pageobjects.LoginPage;
+import viridiantooth34.pageobjects.ProductPage;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import CommonMethods.CommonMethods_;
 
 public class StandAloneTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
-		
-		
 		// Commenting WebdriverManager for Chrome Version Mismatch
 		// WebDriverManager.chromedriver().setup();
 
@@ -29,72 +35,47 @@ public class StandAloneTest {
 
 		WebDriver driver = new ChromeDriver();
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
-		driver.get("https://rahulshettyacademy.com/client");
-		driver.manage().window().maximize();
-		driver.findElement(By.id("userEmail")).sendKeys("rick.bakshi@gmail.com");
-		driver.findElement(By.id("userPassword")).sendKeys("Fortminor1!");
-		driver.findElement(By.id("login")).click();
-		// Storing the product names in an List:
-		String xPathBlock = "//div[@class='card']";
-		List<WebElement> products = driver.findElements(By.xpath(xPathBlock));
-
-		System.out.println("Count of Products=" + products.size());
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='card']//b)[1]")));
-		int indexOfxPath = 0;
-		int flag = 0;
-		// ProductName
 		String productName = "ZARA COAT 3";
-		//// Adding Product To cart////////////////
-		for (int i = 0; i < products.size(); i++) {
 
-//			
-			if (driver.findElement(By.xpath("(" + xPathBlock + "//b)[" + (i + 1) + "]")).getText().trim()
-					.equalsIgnoreCase(productName)) {
-				
-				indexOfxPath = i;
-				flag++;
-				break;
-			}
-		}
+		// Creating reference variables for Page Objects
+		CommonMethods_ commonMethods = PageFactory.initElements(driver, CommonMethods_.class);
+		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+		ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
+		CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
 
-		// Getting the index of Zara Coat:
+		loginPage.goTo("https://rahulshettyacademy.com/client");
+		loginPage.enterCredentials("rick.bakshi@gmail.com", "Fortminor1!");
+		loginPage.clickLoginBtn();
 
-		Thread.sleep(500);
+		productPage.selectProduct("ZARA COAT 3");
 
-		driver.findElement(By.xpath("(" + xPathBlock + "//button[text()=' Add To Cart'])[" + (indexOfxPath + 1) + "]"))
-				.click();
-		Thread.sleep(2000);
+		commonMethods.goToCartPage();
+		// Assertion if the productname is present in the cart
+		Assert.assertTrue(cartPage.isProductExistsInCart(productName), productName + " is not present in the Cart");
 
-		// Explicit Wait to capture the verification msg after adding the product to the
-		// cart
+		////////// Click on Checkout btn:
+		cartPage.clickCheckoutBtn();
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("toast-container")));
-		driver.findElement(By.id("toast-container")).getText();
-		
-		
-		// =========================================
+		/////////////////////////////////////////////
+		///////// Select Country:
 
-		//// Clicking on Cart Button////////////////
-		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
+		// driver.findElement(By.xpath("//input[@placeholder='Select
+		// Country']")).sendKeys("india");
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My Cart']")));
-		
-		//div[@class='cartSection']//h3
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='cartSection']//h3")));
-		System.out.println(driver.findElement(By.xpath("//div[@class='cartSection']//h3")).getText());
-		List<WebElement> cartProductList = driver.findElements(By.xpath("//div[@class='cartSection']//h3"));
-		System.out.println(cartProductList.get(0).getText());
-		boolean isProductPresentInCart = cartProductList.stream().anyMatch(cartProduct-> cartProduct.getText().trim().equalsIgnoreCase(productName));
-		
-		Assert.assertTrue(isProductPresentInCart, productName+" is not present in the Cart");
-		
-		//driver.quit();
-		
-		
-		//driver.quit();
+		// Action Class
+		Actions act = new Actions(driver);
+		act.sendKeys(driver.findElement(By.xpath("//input[@placeholder='Select Country']")), "India");
+		act.build().perform();
+
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='
+		// India']")));
+		driver.findElement(By.xpath("//span[text()=' India']")).click();
+		driver.findElement(By.xpath("//a[text()='Place Order ']")).click();
+
+		// driver.quit();
+
+		Assert.assertEquals(driver.findElement(By.xpath(" //h1[text()=' Thankyou for the order. ']")).getText().trim(),
+				"Thankyou for the order.", "Order was not placed!");
+
 	}
 }
