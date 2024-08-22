@@ -1,9 +1,7 @@
 package viridiantooth34;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import viridiantooth34.pageobjects.CartPage;
-import viridiantooth34.pageobjects.LoginPage;
-import viridiantooth34.pageobjects.ProductPage;
+import viridiantooth34.pageobjects.*;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -42,6 +40,8 @@ public class StandAloneTest {
 		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 		ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
 		CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+		PaymentPage paymentPage = PageFactory.initElements(driver, PaymentPage.class);
+		ConfirmationPage confirmationPage = PageFactory.initElements(driver, ConfirmationPage.class);
 
 		loginPage.goTo("https://rahulshettyacademy.com/client");
 		loginPage.enterCredentials("rick.bakshi@gmail.com", "Fortminor1!");
@@ -50,32 +50,15 @@ public class StandAloneTest {
 		productPage.selectProduct("ZARA COAT 3");
 
 		commonMethods.goToCartPage();
-		// Assertion if the productname is present in the cart
+		// Assertion if the product name is present in the cart
 		Assert.assertTrue(cartPage.isProductExistsInCart(productName), productName + " is not present in the Cart");
 
-		////////// Click on Checkout btn:
 		cartPage.clickCheckoutBtn();
 
-		/////////////////////////////////////////////
-		///////// Select Country:
+		paymentPage.selectCountry();
+		paymentPage.ClickplaceOrderbtn();
 
-		// driver.findElement(By.xpath("//input[@placeholder='Select
-		// Country']")).sendKeys("india");
-
-		// Action Class
-		Actions act = new Actions(driver);
-		act.sendKeys(driver.findElement(By.xpath("//input[@placeholder='Select Country']")), "India");
-		act.build().perform();
-
-		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='
-		// India']")));
-		driver.findElement(By.xpath("//span[text()=' India']")).click();
-		driver.findElement(By.xpath("//a[text()='Place Order ']")).click();
-
-		// driver.quit();
-
-		Assert.assertEquals(driver.findElement(By.xpath(" //h1[text()=' Thankyou for the order. ']")).getText().trim(),
-				"Thankyou for the order.", "Order was not placed!");
-
+		Assert.assertEquals(confirmationPage.getConfirmation(), "THANKYOU FOR THE ORDER.", "Order was not placed!");
+		driver.quit();
 	}
 }
