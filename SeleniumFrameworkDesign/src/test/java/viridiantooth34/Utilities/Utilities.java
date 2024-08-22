@@ -26,7 +26,7 @@ public class Utilities {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void takeScreenShotUsingShutterBug(WebDriver driver) {
+	public void takeFullScreenShot(WebDriver driver) {
 
 		// System.out.println(Double.toString(System.currentTimeMillis()));
 		String screenshot_name = Double.toString(System.currentTimeMillis());

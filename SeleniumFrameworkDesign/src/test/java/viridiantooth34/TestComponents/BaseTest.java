@@ -30,8 +30,9 @@ public class BaseTest {
 		}
 		else if (utility.getValue("browser").equalsIgnoreCase("chrome")) {
 
-			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-
+//			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+			
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		} else if (utility.getValue("browser").equalsIgnoreCase("Edge")) {
 
