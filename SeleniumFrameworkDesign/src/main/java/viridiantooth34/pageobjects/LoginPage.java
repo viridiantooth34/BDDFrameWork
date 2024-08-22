@@ -27,6 +27,11 @@ public class LoginPage extends CommonMethods_{
 
 	@FindBy(how = How.ID, using = "login")
 	WebElement loginBtn;
+	
+	@FindBy(how=How.CLASS_NAME, using = "ng-star-inserted")
+	WebElement errorMsgText;
+	
+	By errorMsgTextClass = By.className("ng-star-inserted");
 
 	By loginBtnID = By.id("login");
 	
@@ -45,6 +50,13 @@ public class LoginPage extends CommonMethods_{
 		waitForElementToAppear(loginBtnID);
 		loginBtn.click();
 		System.out.println("Logged in");
+	}
+	
+	public String errorMsg() {
+		
+		waitForElementToAppear(errorMsgTextClass);
+		return errorMsgText.getText().trim();
+		
 	}
 
 }
