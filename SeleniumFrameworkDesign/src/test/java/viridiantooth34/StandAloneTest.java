@@ -55,7 +55,7 @@ public class StandAloneTest {
 
 		cartPage.clickCheckoutBtn();
 
-		paymentPage.selectCountry();
+		paymentPage.selectCountry("India");
 		paymentPage.ClickplaceOrderbtn();
 
 		Assert.assertEquals(confirmationPage.getConfirmation(), "THANKYOU FOR THE ORDER.", "Order was not placed!");

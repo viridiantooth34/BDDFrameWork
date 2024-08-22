@@ -27,8 +27,8 @@ public class PaymentPage extends CommonMethods_ {
 
 	By countryXpath = By.xpath("//span[text()=' India']");
 
-	public void selectCountry() {
-		country.sendKeys("India");
+	public void selectCountry(String countryName) {
+		country.sendKeys(countryName);
 
 		waitForElementToAppear(countryXpath);
 		driver.findElement(countryXpath).click();
