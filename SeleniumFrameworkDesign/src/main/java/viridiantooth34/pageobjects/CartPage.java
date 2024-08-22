@@ -3,13 +3,14 @@ package viridiantooth34.pageobjects;
 import java.util.List;
 
 import org.testng.Assert;
+
+import viridiantooth34.CommonMethods.CommonMethods_;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
-import CommonMethods.CommonMethods_;
 
 public class CartPage extends CommonMethods_ {
 

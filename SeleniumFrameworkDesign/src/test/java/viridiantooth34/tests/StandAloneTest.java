@@ -1,8 +1,12 @@
-package viridiantooth34;
+package viridiantooth34.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import viridiantooth34.CommonMethods.CommonMethods_;
+import viridiantooth34.TestComponents.BaseTest;
+import viridiantooth34.Utilities.Utilities;
 import viridiantooth34.pageobjects.*;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,24 +21,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import CommonMethods.CommonMethods_;
+public class StandAloneTest extends BaseTest {
 
-public class StandAloneTest {
-
-	public static void main(String[] args) throws InterruptedException {
+	@Test
+	public static void mainTest() throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
-		// Commenting WebdriverManager for Chrome Version Mismatch
-		// WebDriverManager.chromedriver().setup();
-
-		// Adding WebDriver Path:
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-
-		String productName = "ZARA COAT 3";
-
+		// Creating reference variables for Utilities class
+		Utilities utility = new Utilities();
 		// Creating reference variables for Page Objects
 		CommonMethods_ commonMethods = PageFactory.initElements(driver, CommonMethods_.class);
 		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
@@ -43,8 +39,10 @@ public class StandAloneTest {
 		PaymentPage paymentPage = PageFactory.initElements(driver, PaymentPage.class);
 		ConfirmationPage confirmationPage = PageFactory.initElements(driver, ConfirmationPage.class);
 
-		loginPage.goTo("https://rahulshettyacademy.com/client");
-		loginPage.enterCredentials("rick.bakshi@gmail.com", "Fortminor1!");
+		String productName = "ZARA COAT 3";
+
+		loginPage.goTo(utility.getValue("url"));
+		loginPage.enterCredentials(utility.getValue("userid"), utility.getValue("password"));
 		loginPage.clickLoginBtn();
 
 		productPage.selectProduct("ZARA COAT 3");
@@ -59,6 +57,6 @@ public class StandAloneTest {
 		paymentPage.ClickplaceOrderbtn();
 
 		Assert.assertEquals(confirmationPage.getConfirmation(), "THANKYOU FOR THE ORDER.", "Order was not placed!");
-		driver.quit();
+
 	}
 }

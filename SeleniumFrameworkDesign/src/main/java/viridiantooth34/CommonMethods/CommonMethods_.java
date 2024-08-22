@@ -1,4 +1,4 @@
-package CommonMethods;
+package viridiantooth34.CommonMethods;
 
 import java.time.Duration;
 
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CommonMethods_ {
+public class CommonMethods_  {
 
 	WebDriver driver;
 

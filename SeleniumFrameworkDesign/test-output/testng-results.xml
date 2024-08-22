@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-08-22T22:56:27 IST" name="Default suite" finished-at="2024-08-22T22:56:36 IST" duration-ms="8712">
+    <groups>
+    </groups>
+    <test started-at="2024-08-22T22:56:27 IST" name="Default test" finished-at="2024-08-22T22:56:36 IST" duration-ms="8712">
+      <class name="viridiantooth34.tests.StandAloneTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:viridiantooth34.tests.StandAloneTest@609cd4d8]" started-at="2024-08-22T22:56:27 IST" name="setUp" finished-at="2024-08-22T22:56:29 IST" duration-ms="1723" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="mainTest()[pri:0, instance:viridiantooth34.tests.StandAloneTest@609cd4d8]" started-at="2024-08-22T22:56:29 IST" name="mainTest" finished-at="2024-08-22T22:56:36 IST" duration-ms="6842" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- mainTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:viridiantooth34.tests.StandAloneTest@609cd4d8]" started-at="2024-08-22T22:56:36 IST" name="tearDown" finished-at="2024-08-22T22:56:36 IST" duration-ms="128" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- viridiantooth34.tests.StandAloneTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
