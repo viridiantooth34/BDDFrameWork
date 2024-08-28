@@ -28,18 +28,20 @@ public class BaseTest {
 	public void setUp() throws IOException {
 
 		Utilities utility = new Utilities();
-		if(utility.getValue("browser").equalsIgnoreCase("")) {
+		String browserName= System.getProperty("browser")!=null ?System.getProperty("browser"): utility.getValue("browser");
+		
+		if(browserName.equalsIgnoreCase("")) {
 			System.out.println("Invalid Browser");
 			driver.quit();
 			
 		}
-		else if (utility.getValue("browser").equalsIgnoreCase("chrome")) {
+		else if (browserName.equalsIgnoreCase("chrome")) {
 
 //			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 			
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		} else if (utility.getValue("browser").equalsIgnoreCase("Edge")) {
+		} else if (browserName.equalsIgnoreCase("edge")) {
 
 			WebDriverManager.edgedriver().setup();
 
@@ -57,7 +59,7 @@ public class BaseTest {
 
 	}
 
-	@AfterTest(alwaysRun=true)
+	@AfterTest(alwaysRun = true)
 	public void tearDown() {
 
 		driver.quit();

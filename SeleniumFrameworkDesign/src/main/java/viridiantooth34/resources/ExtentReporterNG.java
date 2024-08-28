@@ -6,9 +6,9 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 public class ExtentReporterNG {
 
 	public static ExtentReports getReportObject() {
-		String reportPath = System.getProperty("user.dir") + "\\ExtentReports\\report.html";
+		String reportPath = System.getProperty("user.dir") + "\\ExtentReports\\report"+System.currentTimeMillis()+".html";
 		ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
-		spark.config().setDocumentTitle("amazon test");
+		spark.config().setDocumentTitle("Test Report");
 		spark.config().setReportName("Rick Bakshi");
 
 		ExtentReports extent = new ExtentReports();
