@@ -2,14 +2,23 @@
 
 [Step by Step- Implementation of BDD Framework in a Selenium - Java Project]
 
+Maven Build in CLI:
+test
+-P"$Profile"
+-D"$browser"
+
+**Jenkins Supports : JDK 21**
+
+**Featues:**
+
 - Added POM and PageFactory
 - Supports Fullscreen Capture [Utilities class] - utilities.takeFullScreenShot()
 - Supports MS Edge and Google chrome
 - Supports Extent Report
+- Added Maven support.
+- Added Jenkins support.
 
 **Planned Upgrades:**
-- Add Maven support.
-- Add Jenkins support.
 - Migration to Cucumber
 - Support of other browsers
 - SQLite Integration for Test Reporting and Test Data.
