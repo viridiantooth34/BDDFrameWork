@@ -27,7 +27,7 @@ import org.testng.annotations.Test;
 public class StandAloneTest extends BaseTest {
 
 	@Test
-	public void mainTest() throws InterruptedException, IOException {
+	public void addToCart() throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
 		// Creating reference variables for Utilities class
@@ -61,20 +61,23 @@ public class StandAloneTest extends BaseTest {
 		paymentPage.selectCountry("India");
 		paymentPage.ClickplaceOrderbtn();
 
-		Assert.assertEquals(confirmationPage.getConfirmation(), "THANKYOU FOR THE ORDER.", "Order was not placed!");
+		Assert.assertEquals(confirmationPage.getConfirmation(), "THANKYOU FOR THE ORDER._", "Order was not placed!");
 
 	}
+	
+	
+	
 
-	@Test(dataProvider = "getData")
-	public void ocheckDataProvider(String productName) {
-		System.out.println(productName);
-
-	}
-
-	@DataProvider
-	public Object[][] getData() {
-
-		return new Object[][] { { "ZARA COAT 3" }, { "ADIDAS ORIGINAL" }, { "IPHONE 13 PRO" } };
-	}
+//	@Test(dataProvider = "getData")
+//	public void ocheckDataProvider(String productName) {
+//		System.out.println(productName);
+//
+//	}
+//
+//	@DataProvider
+//	public Object[][] getData() {
+//
+//		return new Object[][] { { "ZARA COAT 3" }, { "ADIDAS ORIGINAL" }, { "IPHONE 13 PRO" } };
+//	}
 
 }

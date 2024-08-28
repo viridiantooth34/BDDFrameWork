@@ -19,6 +19,11 @@ public class BaseTest {
 
 	public static WebDriver driver;
 
+//	public BaseTest(WebDriver driver2) {
+//		// TODO Auto-generated constructor stub
+//		this.driver = driver;
+//	}
+
 	@BeforeTest(alwaysRun=true)
 	public void setUp() throws IOException {
 

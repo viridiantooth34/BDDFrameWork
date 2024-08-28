@@ -15,6 +15,7 @@ public class Utilities {
 	public static Properties prop;
 	public static FileInputStream fis;
 
+	// WebDriver driver;
 	public String getValue(String key) throws IOException {
 
 		prop = new Properties();
@@ -26,10 +27,13 @@ public class Utilities {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void takeFullScreenShot(WebDriver driver) {
+	public String takeFullScreenShot(WebDriver driver) {
 
 		// System.out.println(Double.toString(System.currentTimeMillis()));
 		String screenshot_name = Double.toString(System.currentTimeMillis());
-		Shutterbug.shootPage(driver, Capture.FULL, true).withName(screenshot_name).save("Screenshots\\");
+		Shutterbug.shootPage(driver, Capture.FULL, true).withName(screenshot_name)
+				.save("Screenshots\\");
+		screenshot_name="Screenshots\\"+screenshot_name;
+		return screenshot_name;
 	}
 }

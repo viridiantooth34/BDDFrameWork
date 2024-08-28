@@ -56,6 +56,12 @@
 			<artifactId>selenium-shutterbug</artifactId>
 			<version>1.6</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.1.2</version>
+		</dependency>
 
 
 	</dependencies>

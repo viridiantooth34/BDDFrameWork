@@ -36,6 +36,7 @@ public class LoginPage extends CommonMethods_{
 	By loginBtnID = By.id("login");
 	
 	public void enterCredentials(String email, String pass) {
+		waitForElementToAppear(By.id("userEmail"));
 		emailId.sendKeys(email);
 		password.sendKeys(pass);
 	}
