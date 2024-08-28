@@ -7,7 +7,9 @@
 - Supports MS Edge and Google chrome
 - Supports Extent Report
 
-Planned Upgrades:
+**Planned Upgrades:**
+- Add Maven support.
+- Add Jenkins support.
 - Migration to Cucumber
 - Support of other browsers
 - SQLite Integration for Test Reporting and Test Data.
