@@ -5,6 +5,7 @@
 - Added POM and PageFactory
 - Supports Fullscreen Capture [Utilities class] - utilities.takeFullScreenShot()
 - Supports MS Edge and Google chrome
+- Supports Extent Report
 
 Planned Upgrades:
 - Migration to Cucumber
