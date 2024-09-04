@@ -17,9 +17,10 @@ test
 - Supports Extent Report
 - Added Maven support.
 - Added Jenkins support.
+- Supports Cucumber.
 
 **Planned Upgrades:**
-- Migration to Cucumber
+
 - Support of other browsers
 - SQLite Integration for Test Reporting and Test Data.
 
