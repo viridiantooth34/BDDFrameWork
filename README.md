@@ -3,9 +3,9 @@
 [Step by Step- Implementation of BDD Framework in a Selenium - Java Project]
 
 Maven Build in CLI:
-test
+**test
 -P"$Profile"
--D"$browser"
+-D"$browser"**
 
 **Jenkins Supports : JDK 21**
 
