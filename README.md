@@ -21,6 +21,7 @@ Maven Build in CLI:
 
 **Planned Upgrades:**
 
+- Support for capturing Http Response to check Broken Links
 - Support of other browsers
 - SQLite Integration for Test Reporting and Test Data.
 
