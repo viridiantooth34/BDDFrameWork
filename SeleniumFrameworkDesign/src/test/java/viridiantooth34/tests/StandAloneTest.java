@@ -61,7 +61,7 @@ public class StandAloneTest extends BaseTest {
 		paymentPage.selectCountry("India");
 		paymentPage.ClickplaceOrderbtn();
 
-		Assert.assertEquals(confirmationPage.getConfirmation(), "THANKYOU FOR THE ORDER._", "Order was not placed!");
+		Assert.assertEquals(confirmationPage.getConfirmation(), "THANKYOU FOR THE ORDER.", "Order was not placed!");
 
 	}
 	
