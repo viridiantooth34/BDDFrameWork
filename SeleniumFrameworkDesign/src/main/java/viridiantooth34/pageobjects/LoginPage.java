@@ -5,17 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 import viridiantooth34.CommonMethods.CommonMethods_;
 
-public class LoginPage extends CommonMethods_{
+public class LoginPage// extends CommonMethods_
+{
 
 	WebDriver driver;
 
 	public LoginPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
-		super(driver);
+		//super(driver);
 		this.driver = driver;
+		PageFactory.initElements(driver, this);
+		
 	}
 
 	// WebElements of Login Page
@@ -36,7 +40,7 @@ public class LoginPage extends CommonMethods_{
 	By loginBtnID = By.id("login");
 	
 	public void enterCredentials(String email, String pass) {
-		waitForElementToAppear(By.id("userEmail"));
+		//waitForElementToAppear(By.id("userEmail"));
 		emailId.sendKeys(email);
 		password.sendKeys(pass);
 	}
@@ -48,14 +52,14 @@ public class LoginPage extends CommonMethods_{
 	}
 
 	public void clickLoginBtn() {
-		waitForElementToAppear(loginBtnID);
+		//waitForElementToAppear(loginBtnID);
 		loginBtn.click();
 		System.out.println("Logged in");
 	}
 	
 	public String errorMsg() {
 		
-		waitForElementToAppear(errorMsgTextClass);
+	//	waitForElementToAppear(errorMsgTextClass);
 		return errorMsgText.getText().trim();
 		
 	}

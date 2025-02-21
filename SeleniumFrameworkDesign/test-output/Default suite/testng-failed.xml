@@ -6,8 +6,8 @@
       <class name="viridiantooth34.tests.StandAloneTest">
         <methods>
           <include name="tearDown"/>
-          <include name="mainTest"/>
           <include name="setUp"/>
+          <include name="addToCart"/>
         </methods>
       </class> <!-- viridiantooth34.tests.StandAloneTest -->
     </classes>

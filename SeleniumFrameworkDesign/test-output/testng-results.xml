@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-31T10:12:22 IST" name="Suite" finished-at="2024-08-31T10:12:27 IST" duration-ms="4239">
+  <suite started-at="2025-02-22T00:42:18 IST" name="Default suite" finished-at="2025-02-22T00:42:27 IST" duration-ms="8709">
     <groups>
     </groups>
-    <test started-at="2024-08-31T10:12:22 IST" name="Negative Tests" finished-at="2024-08-31T10:12:27 IST" duration-ms="4239">
-      <class name="viridiantooth34.tests.ErrorValidationTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:viridiantooth34.tests.ErrorValidationTest@32f232a5]" started-at="2024-08-31T10:12:22 IST" name="setUp" finished-at="2024-08-31T10:12:25 IST" duration-ms="2416" status="PASS">
+    <test started-at="2025-02-22T00:42:18 IST" name="Default test" finished-at="2025-02-22T00:42:27 IST" duration-ms="8709">
+      <class name="viridiantooth34.tests.StandAloneTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:viridiantooth34.tests.StandAloneTest@4659191b]" started-at="2025-02-22T00:42:18 IST" name="setUp" finished-at="2025-02-22T00:42:20 IST" duration-ms="2360" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="NegativeTest()[pri:0, instance:viridiantooth34.tests.ErrorValidationTest@32f232a5]" started-at="2024-08-31T10:12:25 IST" name="NegativeTest" finished-at="2024-08-31T10:12:26 IST" duration-ms="1656" status="PASS">
+        <test-method signature="addToCart()[pri:0, instance:viridiantooth34.tests.StandAloneTest@4659191b]" started-at="2025-02-22T00:42:20 IST" name="addToCart" finished-at="2025-02-22T00:42:27 IST" duration-ms="6106" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NegativeTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:viridiantooth34.tests.ErrorValidationTest@32f232a5]" started-at="2024-08-31T10:12:26 IST" name="tearDown" finished-at="2024-08-31T10:12:27 IST" duration-ms="142" status="PASS">
+        </test-method> <!-- addToCart -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:viridiantooth34.tests.StandAloneTest@4659191b]" started-at="2025-02-22T00:42:27 IST" name="tearDown" finished-at="2025-02-22T00:42:27 IST" duration-ms="208" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- viridiantooth34.tests.ErrorValidationTest -->
-    </test> <!-- Negative Tests -->
-  </suite> <!-- Suite -->
+      </class> <!-- viridiantooth34.tests.StandAloneTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
