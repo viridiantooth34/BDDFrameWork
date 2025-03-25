@@ -5,7 +5,7 @@
 Maven Build in CLI:
 **test
 -P"$Profile"
--D"$browser"**
+-Dbrowser="$browser"**
 
 **Jenkins Supports : JDK 21**
 
